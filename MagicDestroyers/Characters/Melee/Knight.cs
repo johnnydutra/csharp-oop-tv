@@ -1,16 +1,36 @@
-﻿using MagicDestroyers.Equipment.Armors;
+﻿using MagicDestroyers.Enums;
+using MagicDestroyers.Equipment.Armors;
 using MagicDestroyers.Equipment.Weapons;
 
 namespace MagicDestroyers.Characters.Melee
 {
     public class Knight
     {
+        private const int DefaultAbilityPoints = 50;
+        private const int DefaultHealthPoints = 50;
+        private const int DefaultLevel = 1;
+
+        private const int MinAbilityPoints = 0;
+        private const int MinHealthPoints = 0;
+        private const int MinLevel = 1;
+
+        private const int MaxAbilityPoints = 100;
+        private const int MaxHealthPoints = 100;
+        private const int MaxLevel = 100;
+
+        private const string DefaultName = "Knight";
+        private const Faction DefaultFaction = Faction.Melee;
+
+        private readonly Chainlink DefaultBodyArmor = new();
+        private readonly Hammer DefaultWeapon = new();
+
         private int _abilityPoints;
         private int _healthPoints;
         private int _level;
 
-        private string _faction;
         private string _name;
+
+        private Faction _faction;
 
         private Chainlink _bodyArmor;
         private Hammer _weapon;
@@ -20,8 +40,8 @@ namespace MagicDestroyers.Characters.Melee
             get => _abilityPoints;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfLessThan(value, 0);
-                ArgumentOutOfRangeException.ThrowIfGreaterThan(value, 100);
+                ArgumentOutOfRangeException.ThrowIfLessThan(value, MinAbilityPoints);
+                ArgumentOutOfRangeException.ThrowIfGreaterThan(value, MaxAbilityPoints);
                 _abilityPoints = value;
             }
         }
@@ -31,8 +51,8 @@ namespace MagicDestroyers.Characters.Melee
             get => _healthPoints;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfLessThan(value, 0);
-                ArgumentOutOfRangeException.ThrowIfGreaterThan(value, 100);
+                ArgumentOutOfRangeException.ThrowIfLessThan(value, MinHealthPoints);
+                ArgumentOutOfRangeException.ThrowIfGreaterThan(value, MaxHealthPoints);
                 _healthPoints = value;
             }
         }
@@ -42,17 +62,18 @@ namespace MagicDestroyers.Characters.Melee
             get => _level;
             set
             {
-                ArgumentOutOfRangeException.ThrowIfLessThan(value, 1);
+                ArgumentOutOfRangeException.ThrowIfLessThan(value, MinLevel);
+                ArgumentOutOfRangeException.ThrowIfGreaterThan(value, MaxLevel);
                 _level = value;
             }
         }
 
-        public string Faction
+        public Faction Faction
         {
             get => _faction;
             set
             {
-                if (value != "Melee" && value != "Spellcaster")
+                if (value != Faction.Melee)
                 {
                     throw new ArgumentException(string.Empty, "The faction should be either Melee or Spellcaster");
                 }
@@ -91,15 +112,15 @@ namespace MagicDestroyers.Characters.Melee
             Level = level;
             HealthPoints = healthPoints;
 
-            AbilityPoints = 100;
-            BodyArmor = new Chainlink();
-            Faction = "Melee";
-            Weapon = new Hammer();
+            AbilityPoints = DefaultAbilityPoints;
+            BodyArmor = DefaultBodyArmor;
+            Faction = DefaultFaction;
+            Weapon = DefaultWeapon;
         }
 
-        public Knight(string name, int level): this(name, level, 100) { }
+        public Knight(string name, int level): this(name, level, DefaultHealthPoints) { }
 
-        public Knight(): this("Unnamed Knight", 1) { }
+        public Knight(): this(DefaultName, DefaultLevel) { }
 
         public void HolyBlow()
         {
