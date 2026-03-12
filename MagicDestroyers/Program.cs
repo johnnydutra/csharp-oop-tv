@@ -1,6 +1,4 @@
-﻿using MagicDestroyers.Characters.Melee;
-
-namespace MagicDestroyers
+﻿namespace MagicDestroyers
 {
     class Program
     {
