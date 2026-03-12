@@ -85,10 +85,21 @@ namespace MagicDestroyers.Characters.Spellcasters
             set { _weapon = value; }
         }
 
-        public Necromancer()
+        public Necromancer(string name, int level, int healthPoints)
         {
+            Name = name;
+            Level = level;
+            HealthPoints = healthPoints;
 
+            AbilityPoints = 100;
+            BodyArmor = new LightLeatherVest();
+            Faction = "Spellcaster";
+            Weapon = new Sword();
         }
+
+        public Necromancer(string name, int level) : this(name, level, 100) { }
+
+        public Necromancer() : this("Unnamed Necromancer", 1) { }
 
         public void ShadowRage()
         {

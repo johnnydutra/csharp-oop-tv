@@ -85,10 +85,21 @@ namespace MagicDestroyers.Characters.Spellcasters
             set { _weapon = value; }
         }
 
-        public Druid()
+        public Druid(string name, int level, int healthPoints)
         {
-            
+            Name = name;
+            Level = level;
+            HealthPoints = healthPoints;
+
+            AbilityPoints = 100;
+            BodyArmor = new LightLeatherVest();
+            Faction = "Spellcaster";
+            Weapon = new Staff();
         }
+
+        public Druid(string name, int level): this(name, level, 100) { }
+
+        public Druid() : this("Unnamed Druid", 1) { }
 
         public void Moonfire()
         {

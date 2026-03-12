@@ -85,10 +85,21 @@ namespace MagicDestroyers.Characters.Spellcasters
             set { _weapon = value; }
         }
 
-        public Mage()
+        public Mage(string name, int level, int healthPoints)
         {
+            Name = name;
+            Level = level;
+            HealthPoints = healthPoints;
 
+            AbilityPoints = 100;
+            BodyArmor = new ClothRobe();
+            Faction = "Spellcaster";
+            Weapon = new Staff();
         }
+
+        public Mage(string name, int level) : this(name, level, 100) { }
+
+        public Mage() : this("Unnamed Mage", 1) { } 
 
         public void ArcaneWrath()
         {

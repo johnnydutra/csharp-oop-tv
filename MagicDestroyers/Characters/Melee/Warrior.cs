@@ -85,10 +85,21 @@ namespace MagicDestroyers.Characters.Melee
             set { _weapon = value; }
         }
 
-        public Warrior()
+        public Warrior(string name, int level, int healthPoints)
         {
+            Name = name;
+            Level = level;
+            HealthPoints = healthPoints;
 
+            AbilityPoints = 100;
+            BodyArmor = new Chainlink();
+            Faction = "Melee";
+            Weapon = new Axe();
         }
+
+        public Warrior(string name, int level) : this(name, level, 100) { }
+
+        public Warrior() : this("Unnamed Warrior", 1) { }
 
         public void Strike()
         {
