@@ -1,9 +1,9 @@
 ﻿namespace MagicDestroyers.Characters.Spellcasters
 {
-    public class Spellcaster : Character
+    public abstract class Spellcaster : Character
     {
         private const int MinManaPoints = 0;
-        private const int MaxManaPoints = 10;
+        private const int MaxManaPoints = 20;
 
         private int _manaPoints;
 

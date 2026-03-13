@@ -1,32 +1,26 @@
 ﻿using MagicDestroyers.Enums;
+using MagicDestroyers.Interfaces;
 
 namespace MagicDestroyers.Characters
 {
-    public class Character
+    public abstract class Character : IAttack, IDefend
     {
         private const int MinLevel = 1;
         private const int MaxLevel = 10;
-        private const int MinHealthPoints = 0;
+        private const int MinHealthPoints = 1;
         private const int MaxHealthPoints = 200;
         private const int MinNameLength = 3;
         private const int MaxNameLength = 15;
 
         private Faction _faction;
         private string _name;
-        private int _level;
         private int _healthPoints;
+        private int _level;
 
         public Faction Faction
         {
             get => _faction;
-            set
-            {
-                if (value != Faction.Melee || value != Faction.Spellcaster)
-                {
-                    throw new ArgumentException(string.Empty, "The faction should be either Melee or Spellcaster");
-                }
-                _faction = value;
-            }
+            set { _faction = value; }
         }
 
         public string Name
@@ -66,6 +60,11 @@ namespace MagicDestroyers.Characters
             }
         }
 
+        public abstract void Attack();
+
+        public abstract void SpecialAttack();
+
+        public abstract void Defend();
 
     }
 }

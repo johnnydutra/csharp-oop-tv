@@ -1,9 +1,9 @@
 ﻿namespace MagicDestroyers.Characters.Melee
 {
-    public class Melee : Character
+    public abstract class Melee : Character
     {
         private const int MinCombatPoints = 0;
-        private const int MaxCombatPoints = 10;
+        private const int MaxCombatPoints = 20;
 
         private int _combatPoints;
 

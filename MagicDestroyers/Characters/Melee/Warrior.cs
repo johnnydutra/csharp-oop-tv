@@ -1,6 +1,5 @@
 ﻿using MagicDestroyers.Enums;
-using MagicDestroyers.Equipment.Armors;
-using MagicDestroyers.Equipment.Weapons;
+using MagicDestroyers.Equipment.Armors.Heavy;
 
 namespace MagicDestroyers.Characters.Melee
 {
@@ -57,6 +56,21 @@ namespace MagicDestroyers.Characters.Melee
         }
 
         public void SkinHarden()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Attack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SpecialAttack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Defend()
         {
             throw new NotImplementedException();
         }

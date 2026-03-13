@@ -1,6 +1,5 @@
 ﻿using MagicDestroyers.Enums;
-using MagicDestroyers.Equipment.Armors;
-using MagicDestroyers.Equipment.Weapons;
+using MagicDestroyers.Equipment.Armors.Leather;
 
 namespace MagicDestroyers.Characters.Spellcasters
 {
@@ -57,6 +56,21 @@ namespace MagicDestroyers.Characters.Spellcasters
         }
 
         public void OneWithTheNature()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Attack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SpecialAttack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Defend()
         {
             throw new NotImplementedException();
         }
